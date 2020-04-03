@@ -13,3 +13,35 @@
  *= require_tree .
  *= require_self
  */
+
+ @import "font-awesome";
+
+ * {
+  font-family: Circular,Helvetica Neue,Helvetica,Arial,sans-serif;
+ }
+
+.facebook-div {
+  border: 1px solid #3b5998;
+  padding: 12px 30px;
+  background-color: #3b5998;
+  color: white;
+  border-radius: 500px;
+  border-width: 0;
+  letter-spacing: 2px;
+  max-width: 300px;
+  text-transform: uppercase;
+  white-space: normal;
+}
+
+.facebook-icon {
+  font-size: 22px;
+}
+
+#facebook {
+  text-decoration: none;
+  color: white;
+}
+
+.facebook-div a {
+  padding-left: 4px;
+}

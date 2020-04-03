@@ -1,7 +1,10 @@
 <h1>Home Page</h1>
 
 <% unless current_user %>
-  <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %>
+  <div class="facebook-div">
+    <%= fa_icon "facebook-square", class: "facebook-icon" %>
+    <%= link_to "Contunue with facebook" , user_facebook_omniauth_authorize_path, id: "facebook" %>
+  </div>
 <% else %>
-  <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+    <%= link_to "Logout", destroy_user_session_path, method: :delete %>
 <% end %>
