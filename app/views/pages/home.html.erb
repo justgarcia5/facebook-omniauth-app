@@ -1,13 +1,1 @@
-
-<% unless current_user %>
-  <div class="facebook-div">
-    <%= fa_icon "facebook-square", class: "facebook-icon" %>
-    <%= link_to "Contunue with facebook" , user_facebook_omniauth_authorize_path, id: "facebook" %>
-  </div>
-<% else %>
-  <% if current_user.image %>
-    <%= image_tag(current_user.image)  %><br/>
-  <% end %>
-  <%= "Welcome #{current_user.name}!"%><br/>
-  <%= link_to "Logout", destroy_user_session_path, method: :delete %>
-<% end %>
+<h1 class="text-center">Welcome to the Home Page</h1>
