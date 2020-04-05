@@ -46,7 +46,4 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise', '~> 4.2'
 gem 'omniauth-facebook'
-gem "font-awesome-rails"
-gem 'bootstrap', '~> 4.0'
-gem 'jquery-rails'
 gem 'omniauth-google-oauth2'
