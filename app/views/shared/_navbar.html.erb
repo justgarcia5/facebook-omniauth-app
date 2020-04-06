@@ -1,39 +1,44 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-dark ">
-  <a class="navbar-brand" href="#">Navbar</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand" href="#">
+      <%= image_tag("bootstrap.png", class: "bootstrap-img") %>
+      Bootstrap
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-  <div class="collapse navbar-collapse " id="navbarSupportedContent">
-    <ul class="navbar-nav text-right">
-      <li class="nav-item active">
-        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-link"> | </li>
-      <li class="nav-item">
-        <% if user_signed_in? %>
-          <%= link_to "Logout", destroy_user_session_path, class: "nav-link", method: :delete %>
-        <% else %>
-          <%= link_to "Log in", new_user_session_path, class: "nav-link" %>
-        <% end %>
-      </li>
-      <li class="nav-item">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link pr-4" href="/">Home <span class="sr-only">(current)</span></a>
+        </li>
         <% unless user_signed_in? %>
-          <%= link_to "Sign up", new_user_session_path, class: "nav-link" %>
-        <% end %>
-      </li>
-      <% if user_signed_in? %>
-        <div class="d-flex">
-          <li class="nav-link">
-            <%# <% if current_user.image %>
-              <%# <%= image_tag(current_user.image) %>
-            <%# <% end %>
-          </li class="nav-item">
-          <li class="nav-link">
-            <%= "Welcome #{current_user.name}!" %>
+          <li class="nav-item">
+            <%= link_to "Log in", new_user_session_path, class: "nav-link" %>
           </li>
-        </div>
-      <% end %>
-    </ul>
+          <li class="nav-item">
+            <%= link_to "Sign up", new_user_session_path, class: "nav-link" %>
+          </li>
+        <% else %>
+          <li class="nav-item nav-right pl-3">
+            <% if current_user.image %>
+              <%= image_tag(current_user.image, class: "nav-brand profile-img mt-1" ) %>
+            <% end %>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <%= current_user.name %>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <div class="dropdown-divider"></div>
+              <%= link_to "Logout", destroy_user_session_path, class: "dropdown-item color-black", method: :delete %>
+            </div>
+          </li>
+        <% end %>
+      </ul>
+    </div>
   </div>
 </nav>
