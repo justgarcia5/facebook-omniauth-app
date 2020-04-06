@@ -1,29 +1,37 @@
-<h2>Sign up</h2>
+<div class="login-container">
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  <h2>Sign up</h2>
+  <div class="facebook-div">
+    <i class="fab fa-facebook facebook-icon"></i>
+    <%= link_to "Contunue with facebook" , user_facebook_omniauth_authorize_path, id: "facebook" %>
   </div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
+  <p>- OR -</p>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
+    <div class="form-group">
+      <%= f.email_field :email, class: "field form-control", autofocus: true, autocomplete: "email", placeholder: "Enter email..." %>
+    </div>
 
-<%= render "devise/shared/links" %>
+    <div class="form-group">
+      <% if @minimum_password_length %>
+      <em>(Password <%= @minimum_password_length %> characters minimum)</em>
+      <% end %><br />
+      <%= f.password_field :password, class: "field form-control", autocomplete: "new-password", placeholder: "Enter password,..." %>
+    </div>
+
+    <div class="field mb-3">
+      <%= f.password_field :password_confirmation, class: "field form-control", autocomplete: "new-password", placeholder: "Password confirmation..." %>
+    </div>
+
+     <div class="actions m-3">
+      <%= f.submit "Sign up", class: "btn btn-success my-2 my-sm-0 pl-5 pr-5" %>
+    </div>
+  <% end %>
+</div>
+
+<div class="text-center p-3">
+  <%= render "devise/shared/links" %>
+</div>
