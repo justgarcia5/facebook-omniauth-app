@@ -60,6 +60,7 @@
 .nav-link {
   color: white!important;
   float: right!important;
+  font-size: 13px;
 }
 
 .navbar-brand {
@@ -68,4 +69,13 @@
 
 .collapse {
   float: right!important;
+}
+
+.profile-img {
+  border-radius: 500px;
+  height: 30px;
+}
+
+.bootstrap-img {
+  height: 36px;
 }
